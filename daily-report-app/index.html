@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日報アプリ</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>日報アプリ</h1>
+      <p class="sub">ローカル保存で毎日振り返る（日付ごとに1件）</p>
+
+      <section class="card">
+        <h2>日報を記録</h2>
+        <form id="report-form" class="grid">
+          <label class="full">
+            日付
+            <input type="date" id="date" required />
+          </label>
+          <label class="full">
+            やったこと
+            <textarea id="done" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            良かったこと
+            <textarea id="good" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            反省点
+            <textarea id="reflect" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            感謝すること
+            <textarea id="thanks" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            明日やること
+            <textarea id="tomorrow" rows="3" required></textarea>
+          </label>
+          <button type="submit">保存する</button>
+        </form>
+        <div class="actions">
+          <button id="download-json" class="ghost" type="button">JSON出力</button>
+          <button id="download-daily-markdown" class="ghost" type="button">Markdown（日報）出力</button>
+          <button id="download-daily-compact-markdown" class="ghost" type="button">Markdown（日報：週ごと集約）出力</button>
+          <button id="download-weekly-markdown" class="ghost" type="button">Markdown（週報）出力</button>
+          <button id="download-monthly-markdown" class="ghost" type="button">Markdown（月報）出力</button>
+          <label class="import-label">
+            JSON読込
+            <input type="file" id="json-import" accept=".json,application/json" />
+          </label>
+          <button id="reset-all" class="danger" type="button">全データ削除</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>記録一覧</h2>
+        <div id="entries-list" class="entries"></div>
+      </section>
+
+      <section class="card">
+        <h2>週報を記録</h2>
+        <form id="weekly-form" class="grid">
+          <label class="full">
+            週の日付
+            <input type="date" id="week-date" required />
+          </label>
+          <label class="full">
+            今週やったこと
+            <textarea id="week-done" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            うまくいったこと・学び
+            <textarea id="week-learning" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            来週やること
+            <textarea id="week-tomorrow" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            メモ
+            <textarea id="week-memo" rows="3" required></textarea>
+          </label>
+          <button type="submit">保存する</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>週報一覧</h2>
+        <div id="weekly-entries-list" class="entries"></div>
+      </section>
+
+      <section class="card">
+        <h2>月報を記録</h2>
+        <form id="monthly-form" class="grid">
+          <label class="full">
+            月（YYYY-MM）
+            <input type="month" id="month" required />
+          </label>
+          <label class="full">
+            今月やったこと・達成したこと
+            <textarea id="month-done" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            うまくいったこと・学び
+            <textarea id="month-learning" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            うまくいかなかったこと・反省
+            <textarea id="month-reflect" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            来月やること・テーマ
+            <textarea id="month-tomorrow" rows="3" required></textarea>
+          </label>
+          <label class="full">
+            メモ
+            <textarea id="month-memo" rows="3" required></textarea>
+          </label>
+          <button type="submit">保存する</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>月報一覧</h2>
+        <div id="monthly-entries-list" class="entries"></div>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
