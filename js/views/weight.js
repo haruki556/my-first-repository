@@ -1,4 +1,4 @@
-import { Store } from '../store.js';
+import { Store } from '../store.js?v=3';
 
 export const WeightView = {
     title: '体重管理',
