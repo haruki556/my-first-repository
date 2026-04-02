@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=10';
+import { Store } from '../store.js?v=11';
 
 export const ReportsView = {
     title: '活動レポート',
@@ -33,23 +33,23 @@ export const ReportsView = {
                         <input type="hidden" class="edit-is-json" value="true">
                         <div>
                             <div style="font-size:0.75rem; font-weight:bold; color:var(--text-secondary); margin-bottom:2px;">良かったところ</div>
-                            <textarea class="edit-good" style="width: 100%; min-height: 60px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.good}</textarea>
+                            <textarea class="edit-good" style="width: 100%; min-height: 100px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.good}</textarea>
                         </div>
                         <div>
                             <div style="font-size:0.75rem; font-weight:bold; color:var(--text-secondary); margin-bottom:2px;">改善点</div>
-                            <textarea class="edit-improve" style="width: 100%; min-height: 60px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.improve}</textarea>
+                            <textarea class="edit-improve" style="width: 100%; min-height: 100px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.improve}</textarea>
                         </div>
                         <div>
                             <div style="font-size:0.75rem; font-weight:bold; color:var(--text-secondary); margin-bottom:2px;">今日感謝すること3つ</div>
-                            <textarea class="edit-grateful" style="width: 100%; min-height: 60px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.grateful}</textarea>
+                            <textarea class="edit-grateful" style="width: 100%; min-height: 100px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.grateful}</textarea>
                         </div>
                         <div>
                             <div style="font-size:0.75rem; font-weight:bold; color:var(--text-secondary); margin-bottom:2px;">明日やること</div>
-                            <textarea class="edit-tomorrow" style="width: 100%; min-height: 60px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.tomorrow}</textarea>
+                            <textarea class="edit-tomorrow" style="width: 100%; min-height: 100px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.tomorrow}</textarea>
                         </div>
                         <div>
                             <div style="font-size:0.75rem; font-weight:bold; color:var(--text-secondary); margin-bottom:2px;">自由書き込み</div>
-                            <textarea class="edit-free" style="width: 100%; min-height: 60px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.free}</textarea>
+                            <textarea class="edit-free" style="width: 100%; min-height: 100px; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface); color: var(--text-primary); font-family: inherit;">${parsed.free}</textarea>
                         </div>
                     </div>
                 ` : `
@@ -127,7 +127,7 @@ export const ReportsView = {
         }).join('');
 
         container.innerHTML = `
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+            <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; align-items: start;">
                 <div class="card" style="position: sticky; top: 100px;">
                     <h3 style="margin-bottom: 1rem; color: var(--text-secondary);"><i data-lucide="pen-tool"></i> レポートを作成</h3>
                     <form id="report-form">
@@ -157,23 +157,23 @@ export const ReportsView = {
                         <div id="daily-report-fields" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
                             <div>
                                 <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">良かったところ</label>
-                                <textarea id="field-good" rows="2" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <textarea id="field-good" rows="4" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
                             </div>
                             <div>
                                 <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">改善点</label>
-                                <textarea id="field-improve" rows="2" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <textarea id="field-improve" rows="4" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
                             </div>
                             <div>
                                 <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">今日感謝すること3つ</label>
-                                <textarea id="field-grateful" rows="3" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <textarea id="field-grateful" rows="5" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
                             </div>
                             <div>
                                 <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">明日やること</label>
-                                <textarea id="field-tomorrow" rows="2" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <textarea id="field-tomorrow" rows="4" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
                             </div>
                             <div>
                                 <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">自由書き込み <span style="font-weight: normal; color: var(--text-muted);">(任意)</span></label>
-                                <textarea id="field-free" rows="2" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <textarea id="field-free" rows="3" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
                             </div>
                         </div>
                         <div id="general-report-fields" style="display: none;">
@@ -208,7 +208,7 @@ export const ReportsView = {
         const style = document.createElement('style');
         style.innerHTML = `
             @media (max-width: 768px) {
-                div[style*="grid-template-columns: 1fr 1fr"] {
+                div[style*="grid-template-columns: 3fr 2fr"] {
                     grid-template-columns: 1fr !important;
                 }
                 .card[style*="position: sticky"] {

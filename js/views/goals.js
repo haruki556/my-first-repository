@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=10';
+import { Store } from '../store.js?v=11';
 
 export const GoalsView = {
     title: '目標設定',
