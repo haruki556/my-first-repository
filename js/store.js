@@ -80,7 +80,11 @@ export const Store = {
 
     async save() {
         // Local Cache (Fallback)
-        localStorage.setItem(STORE_KEY, JSON.stringify(this.state));
+        try {
+            localStorage.setItem(STORE_KEY, JSON.stringify(this.state));
+        } catch(e) {
+            console.error("Local storage quota exceeded or failed", e);
+        }
         
         // Cloud Save
         try {
