@@ -1,4 +1,4 @@
-import { db, doc, getDoc, setDoc, onSnapshot } from './firebase-config.js?v=15';
+import { db, doc, getDoc, setDoc, onSnapshot } from './firebase-config.js?v=16';
 
 // Store logic for localStorage
 const STORE_KEY = 'astra_app_data';
@@ -158,8 +158,8 @@ export const Store = {
 
     // Goals API
     getGoals() { return this.state.goals; },
-    addGoal(title, description = '', category = 'work') {
-        this.state.goals.push({ id: Date.now(), title, description, category, completed: false });
+    addGoal(title, description = '', category = 'work', deadline = '') {
+        this.state.goals.push({ id: Date.now(), title, description, category, deadline, completed: false });
         this.save();
     },
     toggleGoal(id) {
