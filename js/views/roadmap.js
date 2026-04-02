@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=3';
+import { Store } from '../store.js?v=5';
 
 export const RoadmapView = {
     title: '人生ロードマップ',
