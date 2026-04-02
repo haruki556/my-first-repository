@@ -119,15 +119,8 @@ export const ReportsView = {
                             <input type="checkbox" class="report-checkbox" value="${r.id}" style="width: 16px; height: 16px; cursor: pointer;">
                             <span><i data-lucide="calendar" style="width:14px; height:14px; margin-right:4px; vertical-align:middle;"></i> ${date}</span>
                         </div>
-                        <span style="background: var(--bg-surface-hover); border: 1px solid var(--border-color); padding: 0.2rem 0.5rem; border-radius: var(--radius-full); font-size: 0.75rem;"><span style="font-size: 1rem; margin-right: 2px;">${conditionEmoji}</span> ${badgeText}</span>
-                    </div>
-                    ${displayContent}
-                </div>
-            `;
-        }).join('');
-
-        container.innerHTML = `
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: start;">
+                        <span style="background: var(--bg-surface-hover); border: 1px solid var(--border-color); padding: 0.2rem 0.5rem; border-radius: var(--radius-full); font-size: 0.75re        container.innerHTML = `
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
                 <div class="card" style="position: sticky; top: 100px;">
                     <h3 style="margin-bottom: 1rem; color: var(--text-secondary);"><i data-lucide="pen-tool"></i> レポートを作成</h3>
                     <form id="report-form">
@@ -154,7 +147,7 @@ export const ReportsView = {
                                     <option value="😴">😴 お疲れ</option>
                                 </select>
                             </div>
-                        <div id="daily-report-fields" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
+                        <div id="daily-report-fields" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem; width: 100%;">
                             <div>
                                 <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">良かったところ</label>
                                 <textarea id="field-good" rows="2" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
@@ -176,7 +169,7 @@ export const ReportsView = {
                                 <textarea id="field-free" rows="2" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
                             </div>
                         </div>
-                        <div id="general-report-fields" style="display: none;">
+                        <div id="general-report-fields" style="display: none; width: 100%;">
                             <textarea id="report-content" rows="8" placeholder="今週・今月達成したこと、改善点などを記入してください" style="width: 100%; margin-bottom: 1rem; resize: vertical; padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary);"></textarea>
                         </div>
                         
@@ -196,9 +189,20 @@ export const ReportsView = {
                         <button class="filter-btn" data-filter="weekly" style="padding: 0.5rem 1.25rem; font-size: 0.875rem; font-weight: 600; border: none; background: ${this.currentFilter === 'weekly' ? 'var(--primary)' : 'transparent'}; color: ${this.currentFilter === 'weekly' ? '#fff' : 'var(--text-secondary)'}; box-shadow: ${this.currentFilter === 'weekly' ? '0 4px 12px rgba(99, 102, 241, 0.3)' : 'none'}; border-radius: 8px; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap;"><i data-lucide="calendar-days" style="width: 14px; height: 14px; margin-right: 6px; vertical-align: middle;"></i>週報</button>
                         <button class="filter-btn" data-filter="monthly" style="padding: 0.5rem 1.25rem; font-size: 0.875rem; font-weight: 600; border: none; background: ${this.currentFilter === 'monthly' ? 'var(--primary)' : 'transparent'}; color: ${this.currentFilter === 'monthly' ? '#fff' : 'var(--text-secondary)'}; box-shadow: ${this.currentFilter === 'monthly' ? '0 4px 12px rgba(99, 102, 241, 0.3)' : 'none'}; border-radius: 8px; cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); white-space: nowrap;"><i data-lucide="calendar-range" style="width: 14px; height: 14px; margin-right: 6px; vertical-align: middle;"></i>月報</button>
                     </div>
-
-                    <div style="max-height: 500px; overflow-y: auto; padding-right: 0.5rem;">
+                    <div style="max-height: 800px; overflow-y: auto; padding-right: 0.5rem;">
                         ${reports.length > 0 ? reportsHtml : '<p class="text-muted" style="text-align:center; padding: 2rem 0;">該当するカテゴリーのレポートはありません。</p>'}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Handle mobile layout (stack columns)
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @media (max-width: 768px) {
+                div[style*="grid-template-columns: 1fr 1fr"] {
+                    grid-template-columns: 1fr !important;
+                }class="text-muted" style="text-align:center; padding: 2rem 0;">該当するカテゴリーのレポートはありません。</p>'}
                     </div>
                 </div>
             </div>
