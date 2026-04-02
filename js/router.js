@@ -13,6 +13,17 @@ export class Router {
             window.location.hash = '#/';
         }
         this.handleRoute();
+        
+        // --- REAL TIME SYNC: Auto re-render view when cloud data changes ---
+        window.addEventListener('store-updated', () => {
+            // Prevent input wiping if user is typing? Actually, since it's a simple app,
+            // re-rendering will update all data instantly.
+            if (this.currentView && typeof this.currentView.render === 'function') {
+                this.currentView.render(this.rootElem);
+                // Re-initialize icons
+                setTimeout(() => lucide.createIcons(), 50);
+            }
+        });
     }
 
     async handleRoute() {

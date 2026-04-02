@@ -1,4 +1,4 @@
-import { db, doc, getDoc, setDoc } from './firebase-config.js?v=4';
+import { db, doc, getDoc, setDoc, onSnapshot } from './firebase-config.js?v=4';
 
 // Store logic for localStorage
 const STORE_KEY = 'astra_app_data';
@@ -47,7 +47,9 @@ export const Store = {
                 // Restore local images since cloud cannot hold them
                 this.state.visionImages = backupImages;
                 
-                localStorage.setItem(STORE_KEY, JSON.stringify(this.state));
+                try {
+                    localStorage.setItem(STORE_KEY, JSON.stringify(this.state));
+                } catch(e) {}
             } else {
                 // Cloud is empty. Migrate local data if exists
                 if (localData) {
@@ -69,6 +71,28 @@ export const Store = {
                     await this.save();
                 }
             }
+
+            // --- REAL TIME SYNC ---
+            onSnapshot(docRef, (docRealtime) => {
+                if (docRealtime.exists()) {
+                    const data = docRealtime.data();
+                    
+                    // Backup images
+                    const currentSaved = localStorage.getItem(STORE_KEY);
+                    const currentLocal = currentSaved ? JSON.parse(currentSaved) : null;
+                    const imgs = currentLocal ? (currentLocal.visionImages || []) : [];
+                    
+                    this.state = { ...this.state, ...data, visionImages: imgs };
+                    
+                    try {
+                        localStorage.setItem(STORE_KEY, JSON.stringify(this.state));
+                    } catch(e) {}
+                    
+                    // Dispatch event so UI can re-render seamlessly
+                    window.dispatchEvent(new Event('store-updated'));
+                }
+            });
+
         } catch (e) {
             console.error("Cloud Sync Error. Falling back to Local Storage.", e);
             const saved = localStorage.getItem(STORE_KEY);
