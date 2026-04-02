@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Manager | 自己管理アプリ</title>
+    <!-- Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Premium Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="dark-theme">
+    
+    <div id="app-container">
+        <!-- Navigation Sidebar -->
+        <nav id="sidebar">
+            <div class="logo-container">
+                <i data-lucide="infinity" class="logo-icon"></i>
+                <span class="logo-text">Astra</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#/" class="nav-item active" data-route="/"><i data-lucide="layout-dashboard"></i> <span>ダッシュボード</span></a></li>
+                <li><a href="#/visionboard" class="nav-item" data-route="/visionboard"><i data-lucide="image"></i> <span>ビジョンボード</span></a></li>
+                <li><a href="#/goals" class="nav-item" data-route="/goals"><i data-lucide="target"></i> <span>目標設定</span></a></li>
+                <li><a href="#/roadmap" class="nav-item" data-route="/roadmap"><i data-lucide="map"></i> <span>人生ロードマップ</span></a></li>
+                <li><a href="#/habits" class="nav-item" data-route="/habits"><i data-lucide="calendar-check"></i> <span>習慣トラッカー</span></a></li>
+                <li><a href="#/pomodoro" class="nav-item" data-route="/pomodoro"><i data-lucide="timer"></i> <span>集中タイマー</span></a></li>
+                <li><a href="#/tasks" class="nav-item" data-route="/tasks"><i data-lucide="check-square"></i> <span>タスク</span></a></li>
+                <li><a href="#/reports" class="nav-item" data-route="/reports"><i data-lucide="file-text"></i> <span>活動レポート</span></a></li>
+                <li><a href="#/weight" class="nav-item" data-route="/weight"><i data-lucide="activity"></i> <span>体重管理</span></a></li>
+            </ul>
+
+            <div class="user-profile">
+                <div class="avatar"></div>
+                <div class="user-info">
+                    <span class="user-name">ゲスト</span>
+                    <span class="user-status">自己管理システム</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <!-- Header -->
+            <header id="top-bar">
+                <h1 id="page-title">ダッシュボード</h1>
+                <div class="header-actions">
+                    <button class="icon-button" id="theme-toggle" title="テーマ切り替え">
+                        <i data-lucide="sun"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dynamic View Container -->
+            <div id="view-container">
+                <!-- Javascript will render views here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- JS modules -->
+    <script type="module" src="js/app.js?v=3.0"></script>
+</body>
+</html>

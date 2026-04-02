@@ -1,0 +1,86 @@
+:root {
+    /* Base Font */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Z-Index */
+    --z-nav: 100;
+    --z-modal: 200;
+    --z-toast: 300;
+}
+
+/* Dark Theme (Default) */
+body.dark-theme {
+    --bg-base: #0f1115;      /* Deep dark background */
+    --bg-surface: #191c24;   /* Surface color */
+    --bg-surface-hover: #21252e;
+    --bg-glass: rgba(25, 28, 36, 0.6); /* Glass effect */
+    
+    /* Borders */
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(255, 255, 255, 0.15);
+    
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
+    
+    /* Accents (Purple / Blue gradient vibe) */
+    --accent-primary: #7c3aed;  /* Vibrant Purple */
+    --accent-hover: #8b5cf6;
+    --accent-light: rgba(124, 58, 237, 0.15);
+    
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    --shadow-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Light Theme */
+body.light-theme {
+    --bg-base: #f9fafb;
+    --bg-surface: #ffffff;
+    --bg-surface-hover: #f3f4f6;
+    --bg-glass: rgba(255, 255, 255, 0.7);
+    
+    /* Borders */
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-highlight: rgba(0, 0, 0, 0.15);
+    
+    /* Text */
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+    
+    /* Accents */
+    --accent-primary: #6366f1; /* Indigo */
+    --accent-hover: #4f46e5;
+    --accent-light: rgba(99, 102, 241, 0.1);
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    --shadow-highlight: none;
+}
