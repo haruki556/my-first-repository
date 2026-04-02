@@ -35,17 +35,28 @@ export const Store = {
             const docRef = doc(db, "users", this.userPIN);
             const docSnap = await getDoc(docRef);
             
+            // Backup local images before cloud overwrite
+            const saved = localStorage.getItem(STORE_KEY);
+            let localData = saved ? JSON.parse(saved) : null;
+            let backupImages = localData ? (localData.visionImages || []) : [];
+
             if (docSnap.exists()) {
                 // Cloud has data
                 const cloudData = docSnap.data();
                 this.state = { ...this.state, ...cloudData };
+                // Restore local images since cloud cannot hold them
+                this.state.visionImages = backupImages;
+                
                 localStorage.setItem(STORE_KEY, JSON.stringify(this.state));
             } else {
                 // Cloud is empty. Migrate local data if exists
-                const saved = localStorage.getItem(STORE_KEY);
-                if (saved) {
-                    this.state = { ...this.state, ...JSON.parse(saved) };
-                    await setDoc(docRef, this.state);
+                if (localData) {
+                    this.state = { ...this.state, ...localData };
+                    
+                    const payload = { ...this.state };
+                    delete payload.visionImages; // Prevent 1MiB limit crash
+                    await setDoc(docRef, payload);
+                    
                     console.log("Migrated local data to cloud.");
                 } else {
                     // Setup demo data if empty entirely
@@ -75,7 +86,9 @@ export const Store = {
         try {
             if (this.userPIN) {
                 const docRef = doc(db, "users", this.userPIN);
-                await setDoc(docRef, this.state);
+                const payload = { ...this.state };
+                delete payload.visionImages; // Prevent 1MiB limit crash
+                await setDoc(docRef, payload);
             }
         } catch(e) {
             console.error("Failed to save to cloud", e);
