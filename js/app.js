@@ -1,14 +1,14 @@
-import { Store } from './store.js?v=9';
-import { Router } from './router.js?v=9';
-import { DashboardView } from './views/dashboard.js?v=9';
-import { HabitsView } from './views/habits.js?v=9';
-import { PomodoroView } from './views/pomodoro.js?v=9';
-import { TasksView } from './views/tasks.js?v=9';
-import { ReportsView } from './views/reports.js?v=9';
-import { VisionBoardView } from './views/visionboard.js?v=9';
-import { WeightView } from './views/weight.js?v=9';
-import { GoalsView } from './views/goals.js?v=9';
-import { RoadmapView } from './views/roadmap.js?v=9';
+import { Store } from './store.js?v=10';
+import { Router } from './router.js?v=10';
+import { DashboardView } from './views/dashboard.js?v=10';
+import { HabitsView } from './views/habits.js?v=10';
+import { PomodoroView } from './views/pomodoro.js?v=10';
+import { TasksView } from './views/tasks.js?v=10';
+import { ReportsView } from './views/reports.js?v=10';
+import { VisionBoardView } from './views/visionboard.js?v=10';
+import { WeightView } from './views/weight.js?v=10';
+import { GoalsView } from './views/goals.js?v=10';
+import { RoadmapView } from './views/roadmap.js?v=10';
 
 const routes = {
     '/': DashboardView,

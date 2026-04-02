@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=9';
+import { Store } from '../store.js?v=10';
 
 export const DashboardView = {
     title: 'ダッシュボード',
