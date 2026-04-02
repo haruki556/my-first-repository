@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=13';
+import { Store } from '../store.js?v=14';
 
 export const ReportsView = {
     title: '活動レポート',
@@ -154,6 +154,8 @@ export const ReportsView = {
                                     <option value="😴">😴 お疲れ</option>
                                 </select>
                             </div>
+                        </div>
+                        
                         <div id="daily-report-fields" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
                             <div>
                                 <label style="display: block; margin-bottom: 0.25rem; font-size: 1rem; font-weight: bold; color: var(--text-primary);">良かったところ</label>
@@ -176,8 +178,8 @@ export const ReportsView = {
                                 <textarea id="field-free" rows="8" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical; font-size: 1rem;"></textarea>
                             </div>
                         </div>
-                        <div id="general-report-fields" style="display: none;">
-                            <textarea id="report-content" rows="8" placeholder="今週・今月達成したこと、改善点などを記入してください" style="width: 100%; margin-bottom: 1rem; resize: vertical; padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary);"></textarea>
+                        <div id="general-report-fields" style="display: none; width: 100%;">
+                            <textarea id="report-content" rows="12" placeholder="今週・今月達成したこと、改善点などを記入してください" style="width: 100%; margin-bottom: 1rem; resize: vertical; padding: 0.75rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); font-size: 1rem;"></textarea>
                         </div>
                         
                         <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">保存する</button>

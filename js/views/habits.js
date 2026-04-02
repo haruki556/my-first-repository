@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=13';
+import { Store } from '../store.js?v=14';
 
 export const HabitsView = {
     title: '習慣トラッカー',

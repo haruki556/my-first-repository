@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=13';
+import { Store } from '../store.js?v=14';
 
 export const PomodoroView = {
     title: '集中タイマー',
