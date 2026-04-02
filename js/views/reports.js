@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=11';
+import { Store } from '../store.js?v=12';
 
 export const ReportsView = {
     title: '活動レポート',
@@ -127,8 +127,8 @@ export const ReportsView = {
         }).join('');
 
         container.innerHTML = `
-            <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 2rem; align-items: start;">
-                <div class="card" style="position: sticky; top: 100px;">
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                <div class="card" style="width: 100%;">
                     <h3 style="margin-bottom: 1rem; color: var(--text-secondary);"><i data-lucide="pen-tool"></i> レポートを作成</h3>
                     <form id="report-form">
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
@@ -156,24 +156,24 @@ export const ReportsView = {
                             </div>
                         <div id="daily-report-fields" style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1rem;">
                             <div>
-                                <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">良かったところ</label>
-                                <textarea id="field-good" rows="4" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <label style="display: block; margin-bottom: 0.25rem; font-size: 1rem; font-weight: bold; color: var(--text-primary);">良かったところ</label>
+                                <textarea id="field-good" rows="5" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical; font-size: 1rem;"></textarea>
                             </div>
                             <div>
-                                <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">改善点</label>
-                                <textarea id="field-improve" rows="4" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <label style="display: block; margin-bottom: 0.25rem; font-size: 1rem; font-weight: bold; color: var(--text-primary);">改善点</label>
+                                <textarea id="field-improve" rows="5" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical; font-size: 1rem;"></textarea>
                             </div>
                             <div>
-                                <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">今日感謝すること3つ</label>
-                                <textarea id="field-grateful" rows="5" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <label style="display: block; margin-bottom: 0.25rem; font-size: 1rem; font-weight: bold; color: var(--text-primary);">今日感謝すること3つ</label>
+                                <textarea id="field-grateful" rows="5" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical; font-size: 1rem;"></textarea>
                             </div>
                             <div>
-                                <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">明日やること</label>
-                                <textarea id="field-tomorrow" rows="4" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <label style="display: block; margin-bottom: 0.25rem; font-size: 1rem; font-weight: bold; color: var(--text-primary);">明日やること</label>
+                                <textarea id="field-tomorrow" rows="5" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical; font-size: 1rem;"></textarea>
                             </div>
                             <div>
-                                <label style="display: block; margin-bottom: 0.25rem; font-size: 0.875rem; font-weight: bold; color: var(--text-primary);">自由書き込み <span style="font-weight: normal; color: var(--text-muted);">(任意)</span></label>
-                                <textarea id="field-free" rows="3" style="width: 100%; padding: 0.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical;"></textarea>
+                                <label style="display: block; margin-bottom: 0.25rem; font-size: 1rem; font-weight: bold; color: var(--text-primary);">自由書き込み <span style="font-weight: normal; color: var(--text-muted);">(任意)</span></label>
+                                <textarea id="field-free" rows="4" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-surface-hover); color: var(--text-primary); resize: vertical; font-size: 1rem;"></textarea>
                             </div>
                         </div>
                         <div id="general-report-fields" style="display: none;">
