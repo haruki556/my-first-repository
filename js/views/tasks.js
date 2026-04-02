@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=5';
+import { Store } from '../store.js?v=9';
 
 export const TasksView = {
     title: 'タスク管理',
