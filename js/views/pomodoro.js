@@ -137,9 +137,7 @@ export const PomodoroView = {
                 this.isRunning = false;
                 
                 // Update UI without full render
-                const icon = toggleBtn.querySelector('i');
-                icon.setAttribute('data-lucide', 'play');
-                icon.style.marginLeft = '4px';
+                toggleBtn.innerHTML = '<i data-lucide="play" style="width: 36px; height: 36px; margin-left: 4px;"></i>';
                 const statusText = container.querySelector('span[style*="font-size: 1rem; color: var(--text-secondary)"]');
                 if (statusText) statusText.textContent = this.mode === 'work' ? 'さあ、始めましょう' : '休憩しましょう';
                 lucide.createIcons();
@@ -153,9 +151,7 @@ export const PomodoroView = {
                 this.isRunning = true;
 
                 // Update UI without full render
-                const icon = toggleBtn.querySelector('i');
-                icon.setAttribute('data-lucide', 'pause');
-                icon.style.marginLeft = '0';
+                toggleBtn.innerHTML = '<i data-lucide="pause" style="width: 36px; height: 36px; margin-left: 0;"></i>';
                 const statusText = container.querySelector('span[style*="font-size: 1rem; color: var(--text-secondary)"]');
                 if (statusText) statusText.textContent = this.mode === 'work' ? '集中しています...' : 'リラックス中...';
                 lucide.createIcons();
