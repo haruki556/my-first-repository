@@ -1,4 +1,4 @@
-import { Store } from '../store.js?v=14';
+import { Store } from '../store.js?v=15';
 
 export const ReportsView = {
     title: '活動レポート',

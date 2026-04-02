@@ -1,4 +1,4 @@
-import { db, doc, getDoc, setDoc, onSnapshot } from './firebase-config.js?v=14';
+import { db, doc, getDoc, setDoc, onSnapshot } from './firebase-config.js?v=15';
 
 // Store logic for localStorage
 const STORE_KEY = 'astra_app_data';
